@@ -230,6 +230,7 @@ const App: React.FC = () => {
       document.documentElement.classList.remove('dark');
     }
 
+    // Always check user (config is now hardcoded)
     checkUser();
     
     // Listen for auth changes

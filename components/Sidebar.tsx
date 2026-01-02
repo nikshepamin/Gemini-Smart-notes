@@ -39,7 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <div className="flex flex-col h-full w-full">
       {/* Header */}
       <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex-shrink-0">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-2">
           <div className="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 font-bold text-2xl tracking-tight">
             <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-500/10 rounded-xl flex items-center justify-center ring-1 ring-indigo-200 dark:ring-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
               <Book className="w-6 h-6 fill-current" />

@@ -18,7 +18,6 @@ export const noteService = {
 
     if (!user) throw new Error("User must be logged in to create notes");
 
-    // Fix: Send Timestamps as NUMBERS because the schema is 'bigint'
     const now = Date.now();
     const { data, error } = await supabase
       .from('notes')
@@ -26,8 +25,8 @@ export const noteService = {
         user_id: user.id,
         title: note.title || '',
         content: note.content || '',
-        created_at: now, // Sending number, not string
-        updated_at: now, // Sending number, not string
+        created_at: now,
+        updated_at: now,
       })
       .select()
       .single();
@@ -37,13 +36,12 @@ export const noteService = {
   },
 
   async updateNote(id: string, updates: Partial<Note>): Promise<void> {
-    // Fix: Send Timestamps as NUMBERS
     const { error } = await supabase
       .from('notes')
       .update({
         title: updates.title,
         content: updates.content,
-        updated_at: Date.now(), // Sending number
+        updated_at: Date.now(),
       })
       .eq('id', id);
 
