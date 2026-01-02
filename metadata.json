@@ -1,5 +1,5 @@
 {
-  "name": "Gemini Smart Notes",
-  "description": "A clean, distraction-free note-taking application enhanced with Gemini AI for summarization, writing improvements, and auto-titling.",
+  "name": "My Notes",
+  "description": "A clean, distraction-free note-taking application.",
   "requestFramePermissions": []
 }

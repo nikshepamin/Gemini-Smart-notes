@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from './Button';
 import { authService } from '../services/authService';
 import { User } from '../types';
-import { FileText, AlertCircle, Mail, ArrowRight, ArrowLeft, KeyRound, Sun, Moon, Zap } from 'lucide-react';
+import { AlertCircle, Mail, ArrowRight, ArrowLeft, KeyRound, Sun, Moon, Book } from 'lucide-react';
 
 interface AuthProps {
   onLogin: (user: User) => void;
@@ -101,9 +101,9 @@ export const Auth: React.FC<AuthProps> = ({ onLogin, isDarkMode, toggleTheme }) 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
         <div className="flex justify-center items-center space-x-2 text-indigo-600 dark:text-indigo-400 mb-6">
           <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-500/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.3)] ring-1 ring-indigo-500/20">
-            <Zap className="w-6 h-6 fill-current" />
+            <Book className="w-6 h-6 fill-current" />
           </div>
-          <span className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Gemini Notes</span>
+          <span className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">My Notes</span>
         </div>
         <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           {view === 'login' && 'Sign in to your account'}
@@ -113,7 +113,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin, isDarkMode, toggleTheme }) 
         <p className="mt-2 text-center text-sm text-slate-600 dark:text-slate-400">
           {view === 'otp' 
             ? `We sent a code to ${email}`
-            : 'AI-powered note taking for the modern thinker'}
+            : 'Simple, clean note taking for everyone'}
         </p>
       </div>
 
@@ -272,7 +272,7 @@ export const Auth: React.FC<AuthProps> = ({ onLogin, isDarkMode, toggleTheme }) 
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className="bg-white dark:bg-slate-900 px-2 text-slate-500 dark:text-slate-400">
-                   {view === 'otp' ? 'Having trouble?' : (view === 'login' ? 'New to Gemini Notes?' : 'Already have an account?')}
+                   {view === 'otp' ? 'Having trouble?' : (view === 'login' ? 'New to My Notes?' : 'Already have an account?')}
                 </span>
               </div>
             </div>

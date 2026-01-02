@@ -1,6 +1,6 @@
 import React from 'react';
 import { Note, User } from '../types';
-import { Plus, Search, Trash2, LogOut, Sun, Moon, Zap } from 'lucide-react';
+import { Plus, Search, Trash2, LogOut, Sun, Moon, Book } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 interface SidebarProps {
@@ -42,10 +42,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 font-bold text-2xl tracking-tight">
             <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-500/10 rounded-xl flex items-center justify-center ring-1 ring-indigo-200 dark:ring-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
-              <Zap className="w-6 h-6 fill-current" />
+              <Book className="w-6 h-6 fill-current" />
             </div>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">
-              Gemini Notes
+              My Notes
             </span>
           </div>
           

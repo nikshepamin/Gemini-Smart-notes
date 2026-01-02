@@ -6,7 +6,7 @@ import { Note, User } from './types';
 import { authService } from './services/authService';
 import { noteService } from './services/noteService';
 import { supabase } from './services/supabaseClient';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Loader2, BookOpen, Plus } from 'lucide-react';
 
 interface AuthenticatedAppProps {
   user: User;
@@ -191,7 +191,7 @@ const AuthenticatedApp: React.FC<AuthenticatedAppProps> = ({ user, onLogout, isD
             
             <div className="relative z-10 flex flex-col items-center">
               <div className="w-28 h-28 bg-gradient-to-br from-indigo-100 to-white dark:from-slate-800 dark:to-slate-900 rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(99,102,241,0.2)] dark:shadow-[0_0_40px_rgba(99,102,241,0.15)] ring-1 ring-indigo-100 dark:ring-slate-700">
-                 <Sparkles className="w-12 h-12 text-indigo-500 dark:text-indigo-400" />
+                 <BookOpen className="w-12 h-12 text-indigo-500 dark:text-indigo-400" />
               </div>
               <h2 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4 tracking-tight">Welcome back, {user.name.split(' ')[0]}</h2>
               <p className="max-w-lg mx-auto mb-10 text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -202,7 +202,7 @@ const AuthenticatedApp: React.FC<AuthenticatedAppProps> = ({ user, onLogout, isD
                 className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-lg text-white transition-all duration-200 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full hover:from-indigo-500 hover:to-violet-500 shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] hover:-translate-y-0.5"
               >
                 <span className="mr-2">Create New Note</span>
-                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
               </button>
             </div>
           </div>
