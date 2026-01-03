@@ -13,7 +13,7 @@ export const noteService = {
     return (data || []).map(mapFromDb);
   },
 
-  async createNote(userId: string, note: Partial<Note>): Promise<Note> {
+  async createNote(note: Partial<Note>): Promise<Note> {
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) throw new Error("User must be logged in to create notes");

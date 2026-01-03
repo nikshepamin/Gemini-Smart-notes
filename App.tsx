@@ -97,7 +97,7 @@ const AuthenticatedApp: React.FC<AuthenticatedAppProps> = ({ user, onLogout, isD
     };
 
     try {
-      const createdNote = await noteService.createNote(user.id, newNoteTemp);
+      const createdNote = await noteService.createNote(newNoteTemp);
       setNotes([createdNote, ...notes]);
       setActiveNoteId(createdNote.id);
     } catch (e) {
