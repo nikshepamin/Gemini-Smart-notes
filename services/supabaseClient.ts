@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-// 1. Try to get keys from Vite Environment Variables (Best for Netlify)
+// 1. Try to get keys from Vite Environment Variables (Production)
 // 2. Fallback to process.env replacement (from vite.config.ts)
 // 3. Fallback to hardcoded strings (for local dev without env setup)
 
