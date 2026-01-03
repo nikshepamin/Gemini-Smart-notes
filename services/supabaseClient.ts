@@ -1,31 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Helper to check for environment variables (supports Vite's import.meta.env and Polyfilled process.env)
-const getEnv = (viteKey: string, processKey: string, fallback: string) => {
-  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env[viteKey]) {
-    return import.meta.env[viteKey];
+// 1. Try to get keys from Vite Environment Variables (Best for Netlify)
+// 2. Fallback to process.env replacement (from vite.config.ts)
+// 3. Fallback to hardcoded strings (for local dev without env setup)
+
+const getUrl = () => {
+  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_SUPABASE_URL) {
+    return import.meta.env.VITE_SUPABASE_URL;
   }
   // @ts-ignore
-  if (typeof process !== 'undefined' && process.env && process.env[processKey]) {
+  if (typeof process !== 'undefined' && process.env && process.env.SUPABASE_URL) {
     // @ts-ignore
-    return process.env[processKey];
+    return process.env.SUPABASE_URL;
   }
-  return fallback;
+  return 'https://kvuqivoenfprfvlrkchx.supabase.co';
 };
 
-// 1. Try to get keys from Environment Variables (Netlify/Vite)
-// 2. Fallback to the provided hardcoded keys if Env vars are missing
-const supabaseUrl = getEnv(
-  'VITE_SUPABASE_URL', 
-  'SUPABASE_URL', 
-  'https://kvuqivoenfprfvlrkchx.supabase.co'
-);
+const getKey = () => {
+  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_SUPABASE_KEY) {
+    return import.meta.env.VITE_SUPABASE_KEY;
+  }
+  // @ts-ignore
+  if (typeof process !== 'undefined' && process.env && process.env.SUPABASE_KEY) {
+    // @ts-ignore
+    return process.env.SUPABASE_KEY;
+  }
+  return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2dXFpdm9lbmZwcmZ2bHJrY2h4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNjE2NTUsImV4cCI6MjA4MjkzNzY1NX0.njGR_m0_FrVG98o-ctNmFICSq92b3fqby6exrllbiXk';
+};
 
-const supabaseKey = getEnv(
-  'VITE_SUPABASE_KEY', 
-  'SUPABASE_KEY', 
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2dXFpdm9lbmZwcmZ2bHJrY2h4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNjE2NTUsImV4cCI6MjA4MjkzNzY1NX0.njGR_m0_FrVG98o-ctNmFICSq92b3fqby6exrllbiXk'
-);
+const supabaseUrl = getUrl();
+const supabaseKey = getKey();
 
 export const isConfigured = !!supabaseUrl && !!supabaseKey;
 
